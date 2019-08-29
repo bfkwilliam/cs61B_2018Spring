@@ -89,7 +89,7 @@ public class IntList {
         IntList tempList = A;
         if (B == null) {
             return A;
-        }else {
+        } else {
             while (tempList.rest != null) {
                 tempList = tempList.rest;
             }
@@ -105,16 +105,14 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        IntList copyA = new IntList(A.first, null); //initial a new list
-        IntList tempCopyA = copyA;//change the copyA list without losing track of copyA list
-
         if (A == null) {
             return B;
         }
-
         if (B == null) {
             return A;
         }
+        IntList copyA = new IntList(A.first, null); //initial a new list
+        IntList tempCopyA = copyA; //change the copyA list without losing track of copyA list
         /** Copying the whole A List to the new list copyA*/
         A = A.rest;
         while (A != null) {
