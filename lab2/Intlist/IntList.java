@@ -83,12 +83,14 @@ public class IntList {
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
         /** Iterative Way*/
+        if (A == null) {
+            return B;
+        }
         IntList tempList = A;
         if (B == null) {
             return A;
-        }
-        else{
-            while(tempList.rest != null){
+        }else {
+            while (tempList.rest != null) {
                 tempList = tempList.rest;
             }
             tempList.rest = B;
@@ -103,25 +105,25 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        IntList copyA = new IntList(A.first, null);
-        IntList tempCopyA = copyA;
+        IntList copyA = new IntList(A.first, null); //initial a new list
+        IntList tempCopyA = copyA;//change the copyA list without losing track of copyA list
 
-        if(A == null){
+        if (A == null) {
             return B;
         }
 
-        if(B == null){
+        if (B == null) {
             return A;
         }
-
+        /** Copying the whole A List to the new list copyA*/
         A = A.rest;
-        while(A != null){
+        while (A != null) {
             tempCopyA.rest = new IntList(A.first, null);
             A = A.rest;
             tempCopyA = tempCopyA.rest;
         }
+        /** Add B to the tail of new list copyA*/
         tempCopyA.rest = B;
-
         return copyA;
     }
 
